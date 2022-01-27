@@ -1,4 +1,4 @@
-package ex04.Input;
+package day03_operator.ex04.Input;
 
 public class MainInput {
 	// (String[] 아무거나지정(args or x))

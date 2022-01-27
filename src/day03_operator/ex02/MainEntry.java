@@ -1,4 +1,4 @@
-package ex02.operator;
+package day03_operator.ex02;
 // ÃÖ´Ü»ê½¬°ü³í»ï´ëÄŞ
 public class MainEntry {
 	public static void Main(String[] args) {
@@ -18,8 +18,9 @@ public class MainEntry {
 		
 		int a = 10, b = 20, c = 30, result;
 		
-		result = (a > b) ? a : (b > c) ? a = (b < c) ;
-		System.out.println(result);
+//		int result = (a > b) ? a : (b > c) ? a = (b < c);
+		int result1 = 0;
+		System.out.println(result1);
 		
 	// 1. shift ¿¬»êÀÚ : <<, >>, <<<, >>>
 //	int x = 8, result;

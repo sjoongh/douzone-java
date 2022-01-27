@@ -1,4 +1,4 @@
-package quiz;
+package day03_operator.quiz;
 
 public class QuizEx01_shinjoongho {
 	public static void main(String[] args) {

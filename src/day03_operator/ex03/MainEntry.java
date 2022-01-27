@@ -1,4 +1,4 @@
-package ex03.operator;
+package day03_operator.ex03;
 
 public class MainEntry {
 

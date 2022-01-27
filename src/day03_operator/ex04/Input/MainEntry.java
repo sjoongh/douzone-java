@@ -1,4 +1,4 @@
-package ex04.Input;
+package day03_operator.ex04.Input;
 
 import java.util.Scanner;
 //import java.util.*;

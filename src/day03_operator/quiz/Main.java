@@ -1,4 +1,4 @@
-package quiz;
+package day03_operator.quiz;
 
 import java.util.*;
 

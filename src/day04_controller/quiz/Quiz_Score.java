@@ -1,4 +1,4 @@
-package quiz;
+package day04_controller.quiz;
 
 import java.util.Scanner;
 
@@ -19,16 +19,37 @@ public class Quiz_Score {
 		String name = sc.nextLine();
 		
 		System.out.println("kor, eng, com score = ");
-		int kor = sc.nextInt();
-		int eng = sc.nextInt();
-		int com = sc.nextInt();
+		int kor = sc.nextInt();	int eng = sc.nextInt();	int com = sc.nextInt();
 		
 		int tot = kor + eng + com;
 		double avg = tot / 3.0;
 		
+		// ÇÐÁ¡(ÆòÁ¡) : A ~ F ÇÐÁ¡
+		String grade= null;
+	switch(((int) avg) / 10) { // Çüº¯È¯ ÈÄ ³ª´®
+		case 10:
+			grade = "A+";
+			break;
+		case 9:
+			grade = "A";
+			break;
+		case 8:
+			grade = "B";
+			break;
+		case 7:
+			grade = "C";
+			break;
+		case 6:
+			grade = "D";
+			break;
+		default:
+			grade = "F";
+			break;
+		}
+		
 		System.out.println("\n\n**** " +name+"´ÔÀÇ ¼ºÀûÇ¥********");
-		System.out.println("±¹¾î:" + kor + " ¿µ¾î : " + eng + " Àü»ê : " + com);
-		System.out.printf("ÃÑÁ¡ : %d Æò±Õ : %1.2f\n", tot, avg);
+		System.out.println("±¹¾î : " + kor + " ¿µ¾î : " + eng + " Àü»ê : " + com);
+		System.out.printf("ÃÑÁ¡ : %d Æò±Õ : %.0f\n ÇÐÁ¡ : %c", tot, avg, grade);
 	}
 
 }

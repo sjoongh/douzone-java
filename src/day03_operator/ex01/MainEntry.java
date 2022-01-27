@@ -1,4 +1,4 @@
-package ex01.operator;
+package day03_operator.ex01;
 
 // 최단산쉬관논삼대콤
 public class MainEntry {
