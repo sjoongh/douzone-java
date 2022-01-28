@@ -41,6 +41,8 @@ public class Quiz_Score {
 			System.out.println();
 			
 			Arrays.sort(total);
+			String[] arrStr = str.split("");
+	        Arrays.sort(arrStr, Collections.reverseOrder());
 			
 			switch((int) avg) { // 형변환 후 나눔
 			case 100:
