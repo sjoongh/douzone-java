@@ -26,20 +26,20 @@ public class Quiz_Score {
 		
 		// ÇÐÁ¡(ÆòÁ¡) : A ~ F ÇÐÁ¡
 		String grade= null;
-	switch(((int) avg) / 10) { // Çüº¯È¯ ÈÄ ³ª´®
-		case 10:
+	switch((int) avg) { // Çüº¯È¯ ÈÄ ³ª´®
+		case 100:
 			grade = "A+";
 			break;
-		case 9:
+		case 90:
 			grade = "A";
 			break;
-		case 8:
+		case 80:
 			grade = "B";
 			break;
-		case 7:
+		case 70:
 			grade = "C";
 			break;
-		case 6:
+		case 60:
 			grade = "D";
 			break;
 		default:
@@ -49,7 +49,7 @@ public class Quiz_Score {
 		
 		System.out.println("\n\n**** " +name+"´ÔÀÇ ¼ºÀûÇ¥********");
 		System.out.println("±¹¾î : " + kor + " ¿µ¾î : " + eng + " Àü»ê : " + com);
-		System.out.printf("ÃÑÁ¡ : %d Æò±Õ : %.0f\n ÇÐÁ¡ : %c", tot, avg, grade);
+		System.out.printf("ÃÑÁ¡ : %d Æò±Õ : %.1f\nÇÐÁ¡ : %s", tot, avg, grade);
 	}
 
 }
