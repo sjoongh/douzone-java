@@ -50,7 +50,7 @@ public class Quiz {
 		for (int k = 0; k < arr3.length; k++) {
 			System.out.println(arr3[0][k] + arr3[1][k]);
 			for (int l = 0; l < arr3.length; l++) {
-//				System.out.println("arr3["+arr3[k][l]+"]["+arr3[1][l]+"] = "+(arr3[k][l]+arr3[1][l]));
+				System.out.println("arr3["+arr3[k][l]+"]["+arr3[1][l]+"] = "+(arr3[k][l]+arr3[1][l]));
 			}
 		}
 		

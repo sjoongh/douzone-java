@@ -19,7 +19,7 @@ public class Quiz_Score {
 		boolean chose = true;
 		String grade= null;
 		
-		int[] avgline = new int[2];
+		int[] totallist = new int[2];
 		
 		String[][] result = new String [2][5];
 		
@@ -35,7 +35,7 @@ public class Quiz_Score {
 			result[i][4] = Integer.toString(total);
 			
 			double avg = total / 3.0;
-			avgline[i] = total / 3;
+			totallist[i] = total;
 			
 			System.out.println();
 			
@@ -66,13 +66,6 @@ public class Quiz_Score {
 			System.out.println("=======================================\n");
 		}
 		int tmp = 0;
-		if (avgline[0] > avgline[1]) {
-			tmp = avgline[0];
-			avgline[0] = avgline[1];
-			avgline[1] = tmp;
-		}
-		System.out.printf("이름 : %s, 석차 %d\n\n", result[0][0], avgline[0]);
-		System.out.printf("이름 : %s, 석차 %d\n\n", result[1][0], avgline[1]);
 	}
 
 }
