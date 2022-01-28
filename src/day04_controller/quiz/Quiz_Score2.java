@@ -53,8 +53,8 @@ public class Quiz_Score2 {
 			System.out.printf("총점 : %d 평균 : %.0f\n 학점 : %s", tot, avg, grade);
 			System.out.println("\n\n계속하시겠습니까? y/n");
 			
-			// String으로 'n'이나 'y'을 받을 경우 ==으로 하면 변수의 메모리 주소가 달라 비교가 안됨
-			// --> equals를 사용하여 해결할 수 있음
+			// String으로 'n'이나 'y'을 받을 경우 ==으로 하면 stack영역의 변수를 비교해 heap영역의 변수값을 비교할 수 없음
+			// --> equals를 사용하여 해결할 수 있음(heap영역 변수값 비교)
 			// equals : 대소문자 구분하여 비교
 			// equalsIgnoreCase : 대소문자 구분하지 않고 비교
 			
