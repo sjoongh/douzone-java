@@ -1,5 +1,6 @@
 package day05_array.quiz;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Quiz_Score {
@@ -35,9 +36,11 @@ public class Quiz_Score {
 			result[i][4] = Integer.toString(total);
 			
 			double avg = total / 3.0;
-			totallist[i] = total;
+			totallist[i] = Integer.total;
 			
 			System.out.println();
+			
+			Arrays.sort(total);
 			
 			switch((int) avg) { // 형변환 후 나눔
 			case 100:
