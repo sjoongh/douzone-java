@@ -22,46 +22,73 @@ public class Quiz_Score {
 		
 		int[] total = new int[name.length];
 		double[] avg = new double[name.length];
-		String[] grade = new String[name.length];
+		String[][] grade = new String[name.length][4];
 		int[] rank = new int[name.length];
 		
 		for (int i = 0; i < name.length; i++) {
 			
-			System.out.print("이름을 입력하세요");
+			System.out.print("이름을 입력하세요 : ");
 			students[i][0] = sc.next();
 			
-			System.out.println("국어 점수를 입력하세요");
+			System.out.print("국어 점수를 입력하세요 : ");
 			students[i][1] = sc.next();
 			
-			System.out.println("영어 점수를 입력하세요");
+			System.out.print("영어 점수를 입력하세요 : ");
 			students[i][2] = sc.next();
 			
-			System.out.println("수학 점수를 입력하세요");
+			System.out.print("수학 점수를 입력하세요 : ");
 			students[i][3] = sc.next();
 			
 			total[i] = (Integer.parseInt(students[i][1]) + Integer.parseInt(students[i][2]) + Integer.parseInt(students[i][3]));
 			
 			avg[i] = total[i] / 3.0;
 			
-			switch((int) avg[i]) {
-			case 100:
-				grade[i] = "A+";
-				break;
-			case 90:
-				grade[i] = "A+";
-				break;
-			case 80:
-				grade[i] = "A+";
-				break;
-			case 70:
-				grade[i] = "A+";
-				break;
-			case 60:
-				grade[i] = "A+";
-				break;
+			for (int j = 0; j < name.length; j++) {
+				switch((int) avg[i]) {
+				case 100:
+					grade[i][j] = "A+";
+					break;
+				case 90:
+					grade[i][j] = "B";
+					break;
+				case 80:
+					grade[i][j] = "C";
+					break;
+				case 70:
+					grade[i][j] = "D";
+					break;
+				case 60:
+					grade[i][j] = "E";
+					break;
+				default:
+					grade[i][j] = "F";
+					break;
+				}
+			}
+			
+			rank[i] = 1;
+		}
+		for (int i = 0; i < rank.length; i++) {
+			for (int j = 0; j < rank.length; j++) {
+				if (total[i] < total[j]) {
+					rank[i]++;
+				}
 			}
 		}
 		
+		// 출력문
+		for (int i = 0; i < name.length; i++) {
+			System.out.println("=============================================================================");
+			System.out.print("이 름 : "+students[i][0]+" | ");
+			System.out.print("국어 점수 : ");
+			System.out.print("총 점 : "+total[i]+" | ");
+			System.out.printf("평 균 : %.2f점 | ", avg[i]);
+			System.out.print("학 점 : "+grade[i]+" | ");
+			System.out.print("석 차 : "+rank[i]+"등");
+			System.out.println();
+		}
+		
+		sc.close();
 		
 //		int kor = 0;
 //		int eng = 0;
