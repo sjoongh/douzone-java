@@ -17,19 +17,49 @@ public class Quiz_Score {
 		// String배열에 sc.nextInt()로 입력받은 수만큼 name을 생성할 수 있다.
 		String[] name = new String[sc.nextInt()];
 		
-		// 학생수만큼 과목 생성
-		String[][] students = new String[name.length][name.length];
+		// [학생마다] [3개의 과목+total] 생성
+		String[][] students = new String[name.length][5];
 		
-		int[] kor = new int[name.length];
-		int[] eng = new int[name.length];
-		int[] mat = new int[name.length];
 		int[] total = new int[name.length];
 		double[] avg = new double[name.length];
 		String[] grade = new String[name.length];
 		int[] rank = new int[name.length];
 		
 		for (int i = 0; i < name.length; i++) {
-			System.out.println();
+			
+			System.out.print("이름을 입력하세요");
+			students[i][0] = sc.next();
+			
+			System.out.println("국어 점수를 입력하세요");
+			students[i][1] = sc.next();
+			
+			System.out.println("영어 점수를 입력하세요");
+			students[i][2] = sc.next();
+			
+			System.out.println("수학 점수를 입력하세요");
+			students[i][3] = sc.next();
+			
+			total[i] = (Integer.parseInt(students[i][1]) + Integer.parseInt(students[i][2]) + Integer.parseInt(students[i][3]));
+			
+			avg[i] = total[i] / 3.0;
+			
+			switch((int) avg[i]) {
+			case 100:
+				grade[i] = "A+";
+				break;
+			case 90:
+				grade[i] = "A+";
+				break;
+			case 80:
+				grade[i] = "A+";
+				break;
+			case 70:
+				grade[i] = "A+";
+				break;
+			case 60:
+				grade[i] = "A+";
+				break;
+			}
 		}
 		
 		
