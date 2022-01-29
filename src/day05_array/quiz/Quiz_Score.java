@@ -49,16 +49,16 @@ public class Quiz_Score {
 					grade[i][j] = "A+";
 					break;
 				case 90:
-					grade[i][j] = "B";
+					grade[i][j] = "A";
 					break;
 				case 80:
-					grade[i][j] = "C";
+					grade[i][j] = "B";
 					break;
 				case 70:
-					grade[i][j] = "D";
+					grade[i][j] = "C";
 					break;
 				case 60:
-					grade[i][j] = "E";
+					grade[i][j] = "D";
 					break;
 				default:
 					grade[i][j] = "F";
