@@ -12,65 +12,86 @@ public class Quiz_Score {
 		// 이름, 국어, 영어, 수학 점수 입력 받아서 총점/평균/학점(평균) 구하는 프로그램 작성
 		Scanner sc = new Scanner(System.in);
 		
-		int kor = 0;
-		int eng = 0;
-		int com = 0;
-		char ch = ' ';
-		int total = 0;
-		boolean chose = true;
-		String grade= null;
+		System.out.println("학생 수를 입력하세요.");
 		
-		int[] totallist = new int[2];
+		// String배열에 sc.nextInt()로 입력받은 수만큼 name을 생성할 수 있다.
+		String[] name = new String[sc.nextInt()];
 		
-		String[][] result = new String [2][5];
+		// 학생수만큼 과목 생성
+		String[][] students = new String[name.length][name.length];
 		
+		int[] kor = new int[name.length];
+		int[] eng = new int[name.length];
+		int[] mat = new int[name.length];
+		int[] total = new int[name.length];
+		double[] avg = new double[name.length];
+		String[] grade = new String[name.length];
+		int[] rank = new int[name.length];
 		
-		for (int i = 0; i < 2; i++) {
-			System.out.println("이름을 입력하세요");
-			result[i][0] = sc.next();
-			for (int j = 1; j < 4; j++) {
-				System.out.println("국어, 영어, 수학 점수를 입력하세요.");
-				result[i][j] = sc.next();
-			}
-			total = (Integer.parseInt(result[i][1]) + Integer.parseInt(result[i][2]) + Integer.parseInt(result[i][3]));
-			result[i][4] = Integer.toString(total);
-			
-			double avg = total / 3.0;
-			totallist[i] = Integer.total;
-			
+		for (int i = 0; i < name.length; i++) {
 			System.out.println();
-			
-			Arrays.sort(total);
-			String[] arrStr = str.split("");
-	        Arrays.sort(arrStr, Collections.reverseOrder());
-			
-			switch((int) avg) { // 형변환 후 나눔
-			case 100:
-				grade = "A+";
-				break;
-			case 90:
-				grade = "A";
-				break;
-			case 80:
-				grade = "B";
-				break;
-			case 70:
-				grade = "C";
-				break;
-			case 60:
-				grade = "D";
-				break;
-			default:
-				grade = "F";
-				break;
-			}
-			
-			System.out.println("\n\n**** " +result[i][0]+"님의 성적표********");
-			System.out.println("국어 : " + result[i][1] + " 영어 : " + result[i][2] + " 전산 : " + result[i][3]);
-			System.out.printf("총점 : %d 평균 : %.0f\n 학점 : %s", total, avg, grade);
-			System.out.println("=======================================\n");
 		}
-		int tmp = 0;
+		
+		
+//		int kor = 0;
+//		int eng = 0;
+//		int com = 0;
+//		char ch = ' ';
+//		int total = 0;
+//		boolean chose = true;
+//		String grade= null;
+//		
+//		int[] totallist = new int[2];
+//		
+//		String[][] result = new String [2][5];
+//		
+//		
+//		for (int i = 0; i < 2; i++) {
+//			System.out.println("이름을 입력하세요");
+//			result[i][0] = sc.next();
+//			for (int j = 1; j < 4; j++) {
+//				System.out.println("국어, 영어, 수학 점수를 입력하세요.");
+//				result[i][j] = sc.next();
+//			}
+//			total = (Integer.parseInt(result[i][1]) + Integer.parseInt(result[i][2]) + Integer.parseInt(result[i][3]));
+//			result[i][4] = Integer.toString(total);
+//			
+//			double avg = total / 3.0;
+////			totallist[i] = Integer.total;
+//			
+//			System.out.println();
+//			
+////			Arrays.sort(total);
+////			String[] arrStr = str.split("");
+////	        Arrays.sort(arrStr, Collections.reverseOrder());
+////			
+//			switch((int) avg) { // 형변환 후 나눔
+//			case 100:
+//				grade = "A+";
+//				break;
+//			case 90:
+//				grade = "A";
+//				break;
+//			case 80:
+//				grade = "B";
+//				break;
+//			case 70:
+//				grade = "C";
+//				break;
+//			case 60:
+//				grade = "D";
+//				break;
+//			default:
+//				grade = "F";
+//				break;
+//			}
+//			
+//			System.out.println("\n\n**** " +result[i][0]+"님의 성적표********");
+//			System.out.println("국어 : " + result[i][1] + " 영어 : " + result[i][2] + " 전산 : " + result[i][3]);
+//			System.out.printf("총점 : %d 평균 : %.0f\n 학점 : %s", total, avg, grade);
+//			System.out.println("=======================================\n");
+//		}
+//		int tmp = 0;
 	}
 
 }
