@@ -17,6 +17,15 @@ public class Order {
 		this.date = date;
 	}
 	
+	// 수주 정보 등록
+	void addorder() {
+		
+	}
+	
+	public void find() {
+		
+	}
+	
 //	// 수주 입력
 //	inputorder {
 //		

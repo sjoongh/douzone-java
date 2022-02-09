@@ -1,13 +1,32 @@
 package pratice;
 
 public class Customer {
-	private int memberno;
-	private String name;
-	private String address;
-	private int tel;
+	protected int memberno;
+	protected String name;
+	protected String address;
+	protected int tel;
 	
-	public void member(int no, String name, String address, int tel) {
+//	public void member(int memberno, String name, String address, int tel) {
+//		this.memberno = memberno;
+//		this.name = name;
+//		this.address = address;
+//		this.tel = tel;
+//	}
+	
+	public void find() {
 		
+	}
+	
+	public void create() {
+		System.out.println("수주자 등록 : ");
+		
+		System.out.println("고객번호 : ");
+		
+		System.out.println("고객명 : ");
+
+		System.out.println("주소 : ");
+
+		System.out.println("전화번호 : ");
 	}
 	
 	public int getMemberno() {
@@ -40,6 +59,10 @@ public class Customer {
 
 	public void setTel(int tel) {
 		this.tel = tel;
+	}
+	
+	void print() {
+		System.out.println("no : "+memberno+"name : "+name+"address : "+address+"tel : "+tel);
 	}
 
 }
