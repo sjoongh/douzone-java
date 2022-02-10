@@ -1,8 +1,10 @@
 package pratice;
 
+import java.util.Scanner;
+
 public class Order {
 	private int no;
-	private int date;
+	private String date;
 	
 	public int getNo() {
 		return no;
@@ -10,20 +12,23 @@ public class Order {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
 	// 수주 정보 등록
-	void addorder() {
-		
+	public void addOrder() {
+		getDate();
+		getNo();
 	}
 	
-	public void find() {
-		
+	// 수주자 날짜 취득
+	public void findDate() {
+		Scanner sc = new Scanner(System.in);
+		setDate(sc.next());
 	}
 	
 //	// 수주 입력

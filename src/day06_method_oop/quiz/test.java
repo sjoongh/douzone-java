@@ -1,5 +1,5 @@
-package day06_method_oop.quiz;
 
+package day06_method_oop.quiz;
 
 class Test {
 	private String name, pos, depart, sal, hp;
@@ -54,7 +54,6 @@ class Test {
 
 public class test {
 	public static void main(String[] args) {
-		// 이름, 직급, 부서, 급여, 연락처
 		// setter / getter method
 		// output method
 		Test test = new Test();
