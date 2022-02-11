@@ -1,4 +1,3 @@
-
 package day06_method_oop.quiz;
 
 class Test {

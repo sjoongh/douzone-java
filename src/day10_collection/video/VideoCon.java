@@ -20,7 +20,7 @@ public class VideoCon  {
 			cnt = sc.nextInt();
 			switch(cnt) {
 			case 1:
-				tmp = new Video();
+//				tmp = new Video();
 				System.out.println("비디오 제목은?");
 				tmp.title = sc.next();
 
@@ -28,7 +28,7 @@ public class VideoCon  {
 				tmp.category = sc.next();
 				
 				System.out.println("비디오 대여여부?");
-				tmp.bil = sc.next();
+//				tmp.bil = sc.next();
 				video.put(tmp.title, tmp);
 				break;
 			case 2:
@@ -48,7 +48,7 @@ public class VideoCon  {
 				tmp.category = sc.next();
 				
 				System.out.println("비디오 대여여부?");
-				tmp.bil = sc.next();
+//				tmp.bil = sc.next();
 				System.out.println("변경되었습니다.");
 				video.put(tmp.title, tmp);
 				break;
