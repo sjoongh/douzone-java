@@ -19,32 +19,32 @@ public class Order {
 		this.date = date;
 	}
 	
-	// ╪Жаж а╓╨╦ ╣Н╥о
+	// 
 	public void addOrder() {
 		getDate();
 		getNo();
 	}
 	
-	// ╪Жажюз Ё╞б╔ цК╣Ф
+	// О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫б╔ О©╫О©╫О©╫
 	public void findDate() {
 		Scanner sc = new Scanner(System.in);
 		setDate(sc.next());
 	}
 	
-//	// ╪Жаж ют╥б
+//	// О©╫О©╫О©╫О©╫ О©╫т╥О©╫
 //	inputorder {
 //		
 //	}
-//	// ╪Жаж ╣Н╥о
+//	// О©╫О©╫О©╫О©╫ О©╫О©╫О©╫
 //	createorder {
 //		
 //	}
-//	// ╪Жаж цК╪р
+//	// О©╫О©╫О©╫О©╫ О©╫О©╫О©╫
 //	cancelorder {
 //		
 //	}
 //	
-//	// ╪Жажюз а╓╨╦ method
+//	// О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ method
 //	public member() {
 //		
 //	}

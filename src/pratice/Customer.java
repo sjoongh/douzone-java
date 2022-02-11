@@ -18,15 +18,15 @@ public class Customer {
 	}
 	
 	public void create() {
-		System.out.println("¼öÁÖÀÚ µî·Ï : ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : ");
 		
-		System.out.println("°í°´¹øÈ£ : ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½È£ : ");
 		
-		System.out.println("°í°´¸í : ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : ");
+ 
+		System.out.println("ï¿½Ö¼ï¿½ : ");
 
-		System.out.println("ÁÖ¼Ò : ");
-
-		System.out.println("ÀüÈ­¹øÈ£ : ");
+		System.out.println("ï¿½ï¿½È­ï¿½ï¿½È£ : ");
 	}
 	
 	public int getMemberno() {
