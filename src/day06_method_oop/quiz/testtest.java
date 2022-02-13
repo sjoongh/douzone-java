@@ -1,3 +1,4 @@
+
 package day06_method_oop.quiz;
 
 class Test {
@@ -51,7 +52,7 @@ class Test {
 	
 }
 
-public class test {
+public class testtest {
 	public static void main(String[] args) {
 		// setter / getter method
 		// output method
