@@ -25,5 +25,8 @@ public class MainEntry {
 		System.out.println(t2.getName());
 		System.out.println(t1.getName());
 		System.out.println(t3.getName());
+		
+		System.out.println("**********************");
+		System.out.println(t2.getId());
 	}
 }
