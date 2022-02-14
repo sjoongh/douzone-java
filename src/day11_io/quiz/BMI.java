@@ -19,6 +19,15 @@ public class BMI {
 		this.weight = weightli;
 		this.height = heightli;
 	}
+	
+
+	public double getBmi() {
+		return bmi;
+	}
+
+	public void setBmi(double bmi) {
+		this.bmi = bmi;
+	}
 
 	public String getName() {
 		return name;
@@ -26,7 +35,7 @@ public class BMI {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int isCh() {
+	public int getCh() {
 		return ch;
 	}
 	public void setCh(int ch) {

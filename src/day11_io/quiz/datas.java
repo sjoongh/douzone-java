@@ -65,7 +65,7 @@ public class datas {
 			
 			while(tmpBMI.size() > cnt) {
 				fw.write(tmpBMI.get(cnt).getName()+"\r\n");
-				fw.write(tmpBMI.get(cnt).getWeight()+"\r\n");
+				fw.write(tmpBMI.get(cnt).getBmi()+"\r\n");
 				fw.write(tmpBMI.get(cnt).getHeight()+"\r\n");
 				fw.write("\r\n");
 				cnt++;
@@ -130,12 +130,12 @@ public class datas {
 					System.out.print("새로운 키 입력 : ");
 					hei = sc.nextInt();
 					
-					if (tmpBMI.get(i).isCh() == 1) {
+					if (tmpBMI.get(i).getCh() == 1) {
 							bmi = wei / ((hei / 100.0) * (hei / 100.0));
 							hei = (hei-100) * 0.9;
 							tmpBMI.set(find, new BMI(name, wei, hei, bmi, 1));
 						} 
-					else if (tmpBMI.get(i).isCh() == 2) { // 여자일때
+					else if (tmpBMI.get(i).getCh() == 2) { // 여자일때
 							bmi = wei / ((hei / 100.0) * (hei / 100.0));
 							hei = (hei-100) * 0.85;
 							tmpBMI.set(find, new BMI(name, wei, hei, bmi, 2));
