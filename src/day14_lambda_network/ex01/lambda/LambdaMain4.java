@@ -19,6 +19,7 @@ class Person {
 }
 
 public class LambdaMain4 {
+	static int num = 0;
 
 	public static void main(String[] args) {
 		Person p = new Person();
@@ -35,8 +36,11 @@ public class LambdaMain4 {
 		
 		// 람다 적용 방법
 		System.out.println("===================");
+		char ch = 'A';
 		p.greeting((int x, int y) -> { // type에 대해 불문명할 경우는 명시적으로 타입을 써줘야 한다.(타입 생략 불가능)
 			System.out.println("parameter value : " + x+", "+y);
+			System.out.println(ch); // ch의 값은 변경할 수 없음
+			num = 2222; // static 변수값은 변경 가능함
 				});
 	}
 }
