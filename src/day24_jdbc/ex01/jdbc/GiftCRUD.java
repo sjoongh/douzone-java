@@ -51,39 +51,54 @@ public class GiftCRUD  {
 		int result = ps.executeUpdate();
 		
 		System.out.println(result+"데이터 추가 성공");
-		System.out.println(gname+"상품 추가 성공");
 		
 	}
 	// update
 	public static void update() throws SQLException {
-		ps = conn.prepareStatement( "UPDATE GIFT SET gname=?, g_s=?, g_e=? where gno=?");
+		String column = null;
+		String column1 = null;
+		String find = null;
+		String find2 = null;
+		int ch = 0;
+		System.out.println("update column?");
+		System.out.println("1.gno, 2.gname, 3.g_s, 4.g_e");
+		ch = sc.nextInt();
+		if (ch == 1) {
+			column = "gno";
+		} else if (ch == 2) {
+			column = "gname";
+		} else if (ch == 3) {
+			column = "g_s";
+		} else if (ch == 4) {
+			column = "g_e";
+		} else {
+			System.out.println("error");
+		}
+		System.out.println("update column 대상은?");
+		find = sc.next();
+		System.out.println("update where?");
+		column1 = sc.next();
+		System.out.println("update where 대상은?");
+		find2 = sc.next();
 		
-		System.out.println("수정할 상품번호, 상품명, 최저가, 최고가 입력하세요. ");
-		
-		int gno = sc.nextInt();
-		String gname = sc.next();
-		int g_s = sc.nextInt();
-		int g_e = sc.nextInt();
-		
-		ps.setInt(1, gno);
-		ps.setString(2, gname);
-		ps.setInt(3, g_s);
-		ps.setInt(4, g_e);
+		ps = conn.prepareStatement( "UPDATE gift SET "+column+" = '"+find+"'"+" WHERE "+column1+" LIKE '"+find2+"'");
 	
 		int result = ps.executeUpdate();
 		
 		System.out.println(result+" 데이터 수정 성공");
-		System.out.println(gname+" -> 상품 수정 성공");
-		
 	}
 	// delete
 	public static void delete() throws SQLException {
-		ps = conn.prepareStatement( "DELETE from GIFT where gno=?");
+		String column = null;
+		String find = null;
+		System.out.println("삭제할 column?");
+		column = sc.next();
+		System.out.println("삭제 대상?");
+		find=sc.next();
 		
-		System.out.println("삭제할 gno는?");
-		int gno = sc.nextInt();
+		ps = conn.prepareStatement( "DELETE from gift where "+column+" LIKE '"+find+"'");
 		
-		int result = ps.executeUpdate();
+		ps.executeUpdate();
 		System.out.println("삭제 성공");
 		
 	}
@@ -91,7 +106,7 @@ public class GiftCRUD  {
 	public static int menu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n메뉴를 선택하세요");
-		System.out.println("1. select | 2. insert | 3. update | 4. delete");
+		System.out.println("1. select | 2. insert | 3. update | 4. delete | 5. 종료");
 		int num = sc.nextInt();
 		
 		return num;
@@ -121,10 +136,10 @@ public class GiftCRUD  {
 			case 4:
 				delete();
 				break;
-			default:
+			case 5:
 				System.out.println("종료되었습니다.");
 				rs.close(); conn.close();
-				System.exit(0);
+				break;
 			}
 		}
 		
