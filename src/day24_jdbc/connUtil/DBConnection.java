@@ -1,4 +1,4 @@
-package day24_jdbc;
+package day24_jdbc.connUtil;
 
 import java.io.FileReader;
 import java.io.IOException;
