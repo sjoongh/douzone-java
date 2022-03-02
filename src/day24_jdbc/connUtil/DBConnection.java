@@ -22,7 +22,7 @@ public class DBConnection  {
       Reader reader;
       try {
          //reader 객체 생성
-         reader = new FileReader("C:\\Users\\shinjoongho\\eclipse-workspace\\TIL_Java\\src\\day24_lib\\oracle.properties"); // " " 안에 있는 파일 읽어와라 (읽을 파일 지정)
+         reader = new FileReader("C:\\Users\\shinjoongho\\eclipse-workspace\\TIL_Java\\src\\day24_jdbc\\connUtil\\oracle.properties"); // " " 안에 있는 파일 읽어와라 (읽을 파일 지정)
          prop.load(reader); //load : 읽어온다.
       } catch (IOException e) {
          e.printStackTrace();
