@@ -1,4 +1,4 @@
-package pratice;
+package day12_pratice;
 
 public class SpecialCustomer extends Customer {
 	private int spmember;
