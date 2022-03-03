@@ -60,8 +60,9 @@ public class DBConnection  {
 	  System.out.println("\t 1. 레코드 삽입(추가) ");
 	  System.out.println("\t 2. 레코드 수정 ");
 	  System.out.println("\t 3. 전체보기 ");
-	  System.out.println("\t 4. 조건에 의한 검색(ex>사번) ");
+	  System.out.println("\t 4. 조건에 의한 검색(ex>상품번호) ");
 	  System.out.println("\t 5. 레코드 삭제 ");
+	  System.out.println("\t 6. 커밋 or 롤백 ");
 	  System.out.println("\t 0. 프로그램 종료 ");
 	  System.out.println("\t 원하는 메뉴 선택 하세요.");
    }
