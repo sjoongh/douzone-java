@@ -63,7 +63,7 @@ public class DBConnection  {
 	  System.out.println("\t 4. 조건에 의한 검색(ex>사번) ");
 	  System.out.println("\t 5. 레코드 삭제 ");
 	  System.out.println("\t 0. 프로그램 종료 ");
-	  System.out.println("원하는 메뉴 선택 하세요.");
+	  System.out.println("\t 원하는 메뉴 선택 하세요.");
    }
 
 //   public static void main(String[] args) {
