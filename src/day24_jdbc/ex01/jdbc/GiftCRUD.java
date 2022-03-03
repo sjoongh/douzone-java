@@ -74,11 +74,11 @@ public class GiftCRUD  {
 		} else {
 			System.out.println("error");
 		}
-		System.out.println("update column 대상은?");
+		System.out.println("update로 바뀌는 데이터는?");
 		find = sc.next();
-		System.out.println("update where?");
+		System.out.println("update할 column은?");
 		column1 = sc.next();
-		System.out.println("update where 대상은?");
+		System.out.println("update하고 싶은 데이터는?");
 		find2 = sc.next();
 		
 		ps = conn.prepareStatement( "UPDATE gift SET "+column+" = '"+find+"'"+" WHERE "+column1+" LIKE '"+find2+"'");
@@ -116,13 +116,11 @@ public class GiftCRUD  {
 		Scanner sc = new Scanner(System.in);
 		
 		conn = DBConnection.getConnection();
-		// 과제..
+		// 과제
 		boolean run = true;
 		int result = 0;
 		
 		while (run) {
-//			menu();
-//			result = sc.nextInt();
 			switch(menu()) {
 			case 1:
 				select();
