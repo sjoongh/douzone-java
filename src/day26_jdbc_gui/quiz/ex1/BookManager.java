@@ -5,8 +5,6 @@ import java.util.Vector;
 public class BookManager {
 	public static int getRentalPrice(Vector<Book> bookList, String kind) {
 		int count = 0;
-		int count2 = 0;
-		int count3 = 0;
 		
 		if (kind.equalsIgnoreCase("컴퓨터")) {
 			System.out.println("하이");
