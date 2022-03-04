@@ -11,10 +11,12 @@ import java.sql.Statement;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import day24_jdbc.connUtil.DBConnection;
 
@@ -25,14 +27,16 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener{
 	JTextField txtNo, txtName, txtEmail, txtPhone;
 	JButton  btnTotal, btnAdd, btnDel, btnSearch, btnCancel;
 	
-	JTable table; //�˻��� ��ü ���⸦ ���� ���̺� ��ü ����
-	//���º�ȭ�� ���� ���� ����
+	JTable table; // 검색과 전체보기를 위한 테이블 객체 생성
+	// 상태변화를 위한 변수 선언
 	private static final int NONE = 0;
 	private static final int ADD = 1;
 	private static final int DELETE = 2;
 	private static final int SEARCH = 3;
 	private static final int TOTAL = 4;
 	int cmd = NONE;
+	
+	MyModel model; // user class
 	
 	public JDBCProjectEx3(){ // 생성자 함수 = 멤버변수 초기화 담당
 		setTitle("고객 정보 입력 폼");
@@ -66,11 +70,11 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener{
 		
 		//button 화면 아래 등록
 		panSouth = new JPanel();
-		panSouth.add(btnTotal= new JButton("��ü����")); 
-		panSouth.add(btnAdd= new JButton("��     ��"));
-		panSouth.add(btnDel= new JButton("��     ��"));
-		panSouth.add(btnSearch= new JButton("��     ��"));
-		panSouth.add(btnCancel= new JButton("��     ��"));
+		panSouth.add(btnTotal= new JButton("전체보기")); 
+		panSouth.add(btnAdd= new JButton("추	 가"));
+		panSouth.add(btnDel= new JButton("삭	 제"));
+		panSouth.add(btnSearch= new JButton("검	색"));
+		panSouth.add(btnCancel= new JButton("취	소"));
 		add(panSouth, "South");
 		
 		//event 처리
@@ -89,6 +93,7 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener{
 		setVisible(true);	
 		
 		dbConnect();
+		total();
 	} //constuctor end
 	
 	/// db setting ///
@@ -164,22 +169,111 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener{
 	///////// Button Event /////////////////
 	
 	public void total() {
-		// TODO Auto-generated method stub
-		
+		try {
+			ResultSet rsScroll = pstmtTotalScroll.executeQuery();
+			ResultSet rs = pstmtTotal.executeQuery();
+			
+			if (model == null) model = new MyModel();
+			
+			model.getRowCount(rsScroll);
+			model.setData(rs);
+			
+//			table.setModel(model);
+			table.setModel(new DefaultTableModel(model.data, model.columnName));
+			table.updateUI();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void search() {
-		// TODO Auto-generated method stub
+	public void search() { // 검색
+		String strName = txtName.getText();
 		
+		if (strName.length() < 1) {
+			JOptionPane.showMessageDialog(null, "이름은 필수 입니다. 입력해라~");
+			return;
+		}
+		try {
+			pstmtSearchScroll.setString(1, strName);
+			ResultSet rsScroll = pstmtSearchScroll.executeQuery();
+			pstmtSearch.setString(1, strName);
+			ResultSet rs = pstmtSearch.executeQuery();
+			
+			if (model == null) model = new MyModel();
+			model.getRowCount(rsScroll);
+			model.setData(rs);
+			table.setModel(model);
+			table.updateUI();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void del() {
-		// TODO Auto-generated method stub
+		total();
+		String strNo = null;
 		
+		try {
+			strNo = txtNo.getText();
+			if (strNo.length() < 1) {
+				JOptionPane.showMessageDialog(null, "고객번호는 필수 입력란 입니다.");
+				return;
+			}
+			pstmtDelete.setInt(1, Integer.parseInt(strNo));
+			pstmtDelete.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		switch(JOptionPane.showConfirmDialog(null, "고객번호( "+strNo+" ) 번", "삭제 하시겠습니가?",
+				JOptionPane.YES_NO_OPTION)) {
+		
+		case 0: // 확인
+			break;
+		case 1:
+			return;
+		}
+		total();
 	}
 
 	public void add() {
+		try {
+			String strNo = txtNo.getText();
+			String strName = txtName.getText();
+			String strMail = txtEmail.getText();
+			String strPhone = txtPhone.getText();
+			
+//			System.out.println(strNo + ", " + strName + ", " + strMail + ", " + strPhone);
+			
+//			if (strNo.length() < 1 || strName.length() < 1) {
+//				JOptionPane.showMessageDialog(null, "번호와 이름은 필수 사항입니다. 입력해주세요");
+//				return;
+//			}
+			
+			switch (JOptionPane.showConfirmDialog(null,
+					"("+strNo+", "+strName+", "+strMail+", "+strPhone+")",
+					"추가하시겠습니까?",
+					JOptionPane.YES_NO_OPTION)) {
+				case 0: // 확인
+					break;
+				case 1: // 아니요
+					break;
+			}
+			
+			pstmtInsert.setInt(1, Integer.parseInt(strNo));
+			pstmtInsert.setString(2, strName);
+			pstmtInsert.setString(3, strMail);
+			pstmtInsert.setString(4, strPhone);
+			
+			pstmtInsert.executeUpdate();
+			
+		} catch (Exception e) { e.printStackTrace(); }
 		
+		JOptionPane.showMessageDialog(null, "추가 됐습니다.");
+		
+		total();
+		init();
 	}
 	
 	////////////////////////////////
