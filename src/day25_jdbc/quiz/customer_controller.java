@@ -12,7 +12,7 @@ import day25_jdbc.connUtil.DBConnection;
 
 public class customer_controller {
 	static Scanner sc = new Scanner(System.in);
-	static Statement stmt = null;
+	static Statement stmt;
 	static ResultSet rs = null;
 	static Connection conn = null;
 	static PreparedStatement pstmt = null;
@@ -31,7 +31,7 @@ public class customer_controller {
 			// 작은 것부터 순서대로 닫음
 			if (rs != null) rs.close();
 			if (stmt != null) stmt.close();
-			if (pstmt != null) stmt.close();
+			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close(); // connection은 가장 마지막에 닫아야함
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,7 +102,7 @@ public class customer_controller {
 		System.out.print("phone : ");
 		String phone = sc.next();
 		try {
-			pstmt = conn.prepareStatement("insert into gift values(?, ?, ?, ?)");
+			pstmt = conn.prepareStatement("insert into customers values(?, ?, ?, ?)");
 			
 			pstmt.setInt(1, code);
 			pstmt.setNString(2, name);
@@ -123,7 +123,7 @@ public class customer_controller {
 		String find = null;
 		String find2 = null;
 		
-		System.out.println("UPDATE gift SET?");
+		System.out.println("UPDATE customers SET?");
 		column = sc.next();
 		System.out.println(" = ?");
 		find = sc.next();
@@ -133,27 +133,65 @@ public class customer_controller {
 		find2 = sc.next();
 		
 		try {
+			if (column.equalsIgnoreCase("code") && column1.equalsIgnoreCase("code")) {
+				pstmt = conn.prepareStatement( "UPDATE customers SET "+column+" = "+find+" WHERE "+column1+" = "+find2);
+			} else if (column.equalsIgnoreCase("code") && !column1.equalsIgnoreCase("gname")) {
+				pstmt = conn.prepareStatement( "UPDATE customers SET "+column+" = '"+find+"'"+" WHERE "+column1+" = "+find2);
+			} else if (!column.equalsIgnoreCase("code") && column1.equalsIgnoreCase("gname")) {
+				System.out.println("=================================");
+				pstmt = conn.prepareStatement( "UPDATE customers SET "+column+" = "+find+" WHERE "+column1+" = '"+find2+"'");
+			} else {
+				pstmt = conn.prepareStatement( "UPDATE customers SET "+column+" = '"+find+"'"+" WHERE "+column1+" LIKE '"+find2+"'");
+			}
+			System.out.println(pstmt);
+			int result = pstmt.executeUpdate();
 			
+			System.out.println(result +"update 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	public static void select() {
+		System.out.println("where?");
+		String column = sc.next();
+		
 		System.out.println("검색할 내용은?");
-		int finds = sc.nextInt();
+		String finds = sc.next();
+		
 		try {
-			rs = stmt.executeQuery("select * from customers where no = '" + finds+"'");
+			if (column.equalsIgnoreCase("code")) {
+				rs = stmt.executeQuery("select * from customers where "+column+" = " + finds);
+			} else if(!column.equalsIgnoreCase("code")) {
+				rs = stmt.executeQuery("select * from customers where "+column+" LIKE '" + finds+"'");
+			}
+			while (rs.next()) {
+				int code = rs.getInt(1);
+				String name = rs.getString(2);
+				String email = rs.getString(3);
+				String phone = rs.getString(4);
+				
+				System.out.printf("%d: %s, %s, %s%n", code, name, email, phone);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	public static void delete() {
+		String column = null;
 		String find = null;
-		
-		System.out.println("삭제할 컬럼은?");
+		System.out.println("삭제할 column은?");
+		column = sc.next();
+		System.out.println("삭제 대상은?");
+		find = sc.next();
 		
 		try {
-			rs = stmt.executeQuery("select * from " + find);
+			if (column == "code") {
+				pstmt = conn.prepareStatement( "DELETE from customers where "+column+" = "+find);
+			} else {
+				pstmt = conn.prepareStatement( "DELETE from customers where "+column+" LIKE '"+find+"'");
+			}
+			pstmt.executeUpdate();
+			System.out.println("삭제 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -37,7 +37,7 @@ public class GiftController { // Controller
 			// 작은 것부터 순서대로 닫음
 			if (rs != null) rs.close();
 			if (stmt != null) stmt.close();
-			if (pstmt != null) stmt.close();
+			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close(); // connection은 가장 마지막에 닫아야함
 		} catch (Exception e) {
 			e.printStackTrace();
